@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "Timer.h"
 #include "DigitalPin.h"
+
 void setup() {
 }
 
@@ -17,5 +18,5 @@ void loop() {
     while (!signalDetectionPin.read());
     timer.start();
     while (timer.update());
-    while(true);
+    while (true);
 }
