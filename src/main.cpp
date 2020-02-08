@@ -1,6 +1,3 @@
-//
-// Created by 澤田開杜 on 2020/02/08.
-//
 #include <Arduino.h>
 #include "Timer.h"
 #include "DigitalPin.h"
