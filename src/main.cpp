@@ -5,15 +5,24 @@
 void setup() {
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
 void loop() {
-    unsigned long scheduledTime = (60 * 2 + 20) * 1000UL;
+    unsigned long scheduledTime = Timer::createTime(0, 2, 20, 0);
+    auto led = DigitalPin(13, OUTPUT);
+    auto pin = DigitalPin(5, OUTPUT);
+    pin.write(LOW);
     auto timer = Timer(scheduledTime, false, []() {
+        auto led = DigitalPin(13, OUTPUT);
         auto pin = DigitalPin(5, OUTPUT);
+        led.write(LOW);
         pin.write(HIGH);
     });
     auto signalDetectionPin = DigitalPin(6, INPUT);
     while (!signalDetectionPin.read());
+    led.write(HIGH);
     timer.start();
     while (timer.update());
     while (true);
 }
+#pragma clang diagnostic pop
