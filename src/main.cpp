@@ -8,7 +8,7 @@ void setup() {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 void loop() {
-    unsigned long scheduledTime = Timer::createTime(0, 2, 11, 0);
+    unsigned long scheduledTime = Timer::createTime(0, 2, 10, 0);
     auto led = DigitalPin(13, OUTPUT);
     auto pin = DigitalPin(5, OUTPUT);
     pin.write(LOW);
